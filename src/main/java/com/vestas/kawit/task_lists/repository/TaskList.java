@@ -27,20 +27,19 @@ public class TaskList {
     @ElementCollection(targetClass = OrderComponent.class) @OneToMany(cascade = CascadeType.ALL)
     private List<OrderComponent> components;
 
-    @FutureOrPresent
     private Date date;
 
     public TaskList() {
     }
 
-    public TaskList(int plant, int taskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components) {
+    public TaskList(int plant, int taskList, int plantAndTaskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
         this.operations = operations;
         this.components = components;
-        this.date = new Date(System.currentTimeMillis());
-        this.plantAndTaskList = Integer.parseInt(String.format("%d%d", plant, taskList));
+        this.date = date;
+        this.plantAndTaskList = plantAndTaskList;
     }
 
     public int getPlant() {
@@ -95,4 +94,7 @@ public class TaskList {
         return date;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

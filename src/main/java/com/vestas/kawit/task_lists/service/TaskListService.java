@@ -5,6 +5,8 @@ import com.vestas.kawit.task_lists.repository.TaskListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+
 @Service
 public class TaskListService {
 
@@ -16,6 +18,8 @@ public class TaskListService {
     }
 
     public TaskList add(TaskList taskList) {
+        taskList.setDate(new Date(System.currentTimeMillis()));
+        taskList.setPlantAndTaskList(Integer.parseInt(taskList.getPlant() + Integer.toString(taskList.getTaskList())));
         return taskListRepository.save(taskList);
     }
 }

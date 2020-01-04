@@ -2,11 +2,17 @@ package com.vestas.kawit.task_lists.repository;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
+@Entity
 public class OrderOperation {
 
+    @Id @GeneratedValue
+    private int id;
     @NotEmpty
     @Length(min = 4, max = 4)
     private String operation;
@@ -26,6 +32,14 @@ public class OrderOperation {
         this.operationShortText = operationShortText;
         this.workingHours = workingHours;
         this.numberOfTechnicians = numberOfTechnicians;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getOperation() {

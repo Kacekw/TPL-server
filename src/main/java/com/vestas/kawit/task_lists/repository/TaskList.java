@@ -1,12 +1,13 @@
 package com.vestas.kawit.task_lists.repository;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.data.annotation.Id;
 
 import java.sql.Date;
 import java.util.List;
@@ -25,7 +26,9 @@ public class TaskList {
     @NotEmpty(message = "Long text cannot be empty.")
     private String longText;
     @NotEmpty(message = "Operations cannot be empty.")
+    @ElementCollection(targetClass = OrderOperation.class)
     private List<OrderOperation> operations;
+    @ElementCollection(targetClass = OrderComponent.class)
     private List<OrderComponent> components;
 
     @FutureOrPresent

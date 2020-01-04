@@ -1,9 +1,15 @@
 package com.vestas.kawit.task_lists.repository;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+@Entity
 public class OrderComponent {
 
+    @Id @GeneratedValue
+    private int id;
     @NotEmpty
     private String componentNo;
     @NotEmpty
@@ -27,6 +33,14 @@ public class OrderComponent {
         this.itemCategory = itemCategory;
         this.operation = operation;
         this.reservation = reservation;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getComponentNo() {

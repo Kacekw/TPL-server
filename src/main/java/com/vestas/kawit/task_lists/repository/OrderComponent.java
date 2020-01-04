@@ -14,7 +14,6 @@ public class OrderComponent {
     private String componentNo;
     @NotEmpty
     private String description;
-    @NotEmpty
     private int requirement;
     @NotEmpty
     private String itemCategory;
@@ -26,7 +25,7 @@ public class OrderComponent {
     public OrderComponent() {
     }
 
-    public OrderComponent(@NotEmpty String componentNo, @NotEmpty String description, @NotEmpty int requirement, @NotEmpty String itemCategory, @NotEmpty String operation, @NotEmpty String reservation) {
+    public OrderComponent(@NotEmpty String componentNo, @NotEmpty String description, int requirement, @NotEmpty String itemCategory, @NotEmpty String operation, @NotEmpty String reservation) {
         this.componentNo = componentNo;
         this.description = description;
         this.requirement = requirement;

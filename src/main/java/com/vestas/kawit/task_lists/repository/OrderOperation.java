@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class OrderOperation {
@@ -19,7 +20,7 @@ public class OrderOperation {
     @NotEmpty
     @Length(max = 40)
     private String operationShortText;
-    @NotEmpty
+    @NotNull
     private int workingHours;
     @Min(1)
     private int numberOfTechnicians;
@@ -27,7 +28,7 @@ public class OrderOperation {
     public OrderOperation() {
     }
 
-    public OrderOperation(@NotEmpty @Length(min = 4, max = 4) String operation, @NotEmpty @Length(max = 40) String operationShortText, @NotEmpty int workingHours, @Min(1) int numberOfTechnicians) {
+    public OrderOperation(@NotEmpty @Length(min = 4, max = 4) String operation, @NotEmpty @Length(max = 40) String operationShortText, @NotNull int workingHours, @Min(1) int numberOfTechnicians) {
         this.operation = operation;
         this.operationShortText = operationShortText;
         this.workingHours = workingHours;

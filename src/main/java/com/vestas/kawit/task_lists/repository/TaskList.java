@@ -1,8 +1,6 @@
 package com.vestas.kawit.task_lists.repository;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -15,9 +13,7 @@ import java.util.List;
 @Entity
 public class TaskList {
 
-    @Length(min = 4, max = 4, message = "Plant number has to contain 4 digits.")
     private int plant;
-    @Length(min = 4, max = 6, message = "Accepted task list lenght is 4-6")
     private int taskList;
     @Id
     private int plantAndTaskList;
@@ -26,9 +22,9 @@ public class TaskList {
     @NotEmpty(message = "Long text cannot be empty.")
     private String longText;
     @NotEmpty(message = "Operations cannot be empty.")
-    @ElementCollection(targetClass = OrderOperation.class)
+    @ElementCollection(targetClass = OrderOperation.class) @OneToMany(cascade = CascadeType.ALL)
     private List<OrderOperation> operations;
-    @ElementCollection(targetClass = OrderComponent.class)
+    @ElementCollection(targetClass = OrderComponent.class) @OneToMany(cascade = CascadeType.ALL)
     private List<OrderComponent> components;
 
     @FutureOrPresent
@@ -37,13 +33,13 @@ public class TaskList {
     public TaskList() {
     }
 
-    public TaskList(@Length(min = 4, max = 4, message = "Plant number has to contain 4 digits.") int plant, @Length(min = 4, max = 6, message = "Accepted task list lenght is 4-6") int taskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, @FutureOrPresent Date date) {
+    public TaskList(int plant, int taskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
         this.operations = operations;
         this.components = components;
-        this.date = date;
+        this.date = new Date(System.currentTimeMillis());
         this.plantAndTaskList = Integer.parseInt(String.format("%d%d", plant, taskList));
     }
 
@@ -99,7 +95,4 @@ public class TaskList {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }

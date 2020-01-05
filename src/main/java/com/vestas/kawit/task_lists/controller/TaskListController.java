@@ -3,12 +3,10 @@ package com.vestas.kawit.task_lists.controller;
 import com.vestas.kawit.task_lists.repository.TaskList;
 import com.vestas.kawit.task_lists.service.TaskListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RequestMapping("/tasklist")
 @RestController
@@ -19,6 +17,11 @@ public class TaskListController {
     @Autowired
     public TaskListController(TaskListService taskListService) {
         this.taskListService = taskListService;
+    }
+
+    @GetMapping
+    public List<TaskList> getAllTaskLists(@RequestParam(required = false) String plant, String taskList){
+        return taskListService.getAll(plant, taskList);
     }
 
     @PostMapping

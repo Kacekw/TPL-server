@@ -1,11 +1,8 @@
 package com.vestas.kawit.task_lists.repository;
 
 import javax.persistence.*;
-import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 import java.sql.Date;
 import java.util.List;

@@ -15,7 +15,8 @@ public class TaskListDTOTransformer {
                 taskList.getOperations(),
                 taskList.getComponents(),
                 taskList.getDate(),
-                taskList.getAuthor()
+                taskList.getAuthor(),
+                taskList.getOrderNo()
         );
 
         return dataTransferObject;

@@ -17,8 +17,9 @@ public class TaskListDTO {
 
     private Date date;
     private String author;
+    private float orderNo;
 
-    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author) {
+    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author, float orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
@@ -26,6 +27,7 @@ public class TaskListDTO {
         this.components = components;
         this.date = date;
         this.author = author;
+        this.orderNo = orderNo;
     }
 
     public int getPlant() {
@@ -84,6 +86,14 @@ public class TaskListDTO {
         this.author = author;
     }
 
+    public float getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(long orderNo) {
+        this.orderNo = orderNo;
+    }
+
     @Override
     public String toString() {
         return String.format("Created by %s on %s\n" +
@@ -91,12 +101,14 @@ public class TaskListDTO {
                 "Task list no %s\n" +
                 "Long text: \n%s\n" +
                 "Operations: %s\n" +
-                "Components: %s\n",
+                "Components: %s\n" +
+                "Order no: %s",
                 getAuthor(), getDate(),
                 getPlant(),
                 getTaskList(),
                 getLongText(),
                 getOperations(),
-                getComponents());
+                getComponents(),
+                getOrderNo());
     }
 }

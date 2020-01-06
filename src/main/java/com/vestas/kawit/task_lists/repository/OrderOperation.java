@@ -12,7 +12,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class OrderOperation {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     @NotEmpty
     @Length(min = 4, max = 4)
@@ -73,5 +74,11 @@ public class OrderOperation {
 
     public void setNumberOfTechnicians(int numberOfTechnicians) {
         this.numberOfTechnicians = numberOfTechnicians;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("\n%s | %s | %s | %s",
+                getOperation(), getOperationShortText(), getNumberOfTechnicians(), getWorkingHours());
     }
 }

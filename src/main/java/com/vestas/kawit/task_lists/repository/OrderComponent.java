@@ -89,4 +89,10 @@ public class OrderComponent {
     public void setReservation(String reservation) {
         this.reservation = reservation;
     }
+
+    @Override
+    public String toString() {
+        return String.format("\n%s | %s | %s | %s | %s | %s",
+                getComponentNo(), getDescription(), getRequirement(), getItemCategory(), getOperation(), getReservation());
+    }
 }

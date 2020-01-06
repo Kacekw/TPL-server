@@ -1,47 +1,30 @@
-package com.vestas.kawit.task_lists.repository;
+package com.vestas.kawit.task_lists.service;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import com.vestas.kawit.task_lists.repository.OrderComponent;
+import com.vestas.kawit.task_lists.repository.OrderOperation;
 
 import java.sql.Date;
 import java.util.List;
 
-@Entity
-public class TaskList {
+public class TaskListDTO {
 
     private int plant;
     private int taskList;
-    @Id
-    private int plantAndTaskList;
 
-    @NotNull
-    @NotEmpty(message = "Long text cannot be empty.")
     private String longText;
-    @NotEmpty(message = "Operations cannot be empty.")
-    @ElementCollection(targetClass = OrderOperation.class)
-    @OneToMany(cascade = CascadeType.ALL)
     private List<OrderOperation> operations;
-    @ElementCollection(targetClass = OrderComponent.class)
-    @OneToMany(cascade = CascadeType.ALL)
     private List<OrderComponent> components;
 
     private Date date;
-
-    @NotEmpty
     private String author;
 
-    public TaskList() {
-    }
-
-    public TaskList(int plant, int taskList, int plantAndTaskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date, @NotEmpty String author) {
+    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
         this.operations = operations;
         this.components = components;
         this.date = date;
-        this.plantAndTaskList = plantAndTaskList;
         this.author = author;
     }
 
@@ -59,14 +42,6 @@ public class TaskList {
 
     public void setTaskList(int taskList) {
         this.taskList = taskList;
-    }
-
-    public int getPlantAndTaskList() {
-        return plantAndTaskList;
-    }
-
-    public void setPlantAndTaskList(int plantAndTaskList) {
-        this.plantAndTaskList = plantAndTaskList;
     }
 
     public String getLongText() {
@@ -107,5 +82,21 @@ public class TaskList {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Created by %s on %s\n" +
+                "Plant %s\n" +
+                "Task list no %s\n" +
+                "Long text: \n%s\n" +
+                "Operations: %s\n" +
+                "Components: %s\n",
+                getAuthor(), getDate(),
+                getPlant(),
+                getTaskList(),
+                getLongText(),
+                getOperations(),
+                getComponents());
     }
 }

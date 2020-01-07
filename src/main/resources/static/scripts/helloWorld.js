@@ -1,0 +1,1 @@
+alert('Technical planning server says hello!');

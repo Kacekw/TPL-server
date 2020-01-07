@@ -2,16 +2,18 @@ package com.vestas.kawit.main_site.controller;
 
 import com.vestas.kawit.logger.service.Logging;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-@RestController
 @RequestMapping("/")
+@Controller
 public class MainSiteController {
 
     private final Logging logging;
@@ -23,8 +25,8 @@ public class MainSiteController {
 
     @GetMapping
     public String index(HttpServletRequest request){
-        System.out.println(getClientHostName(request));
-        return "<b><center>Test serwera tpl</b></center>";
+        //System.out.println(getClientHostName(request));
+        return "index";//"<b><center>Test serwera tpl</b></center>";
     }
 
     public String getClientHostName(HttpServletRequest request){

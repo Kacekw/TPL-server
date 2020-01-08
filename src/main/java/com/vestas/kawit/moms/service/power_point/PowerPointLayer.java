@@ -8,28 +8,30 @@ public class PowerPointLayer {
 
     private Dispatch presentation;
     private Dispatch presentations;
-    private Variant variant;
     private ActiveXComponent powerPoint;
 
 
     public Result runPresentation(String filePath) {
-        stopPresentation();
+        System.out.println(stopPresentation());
 
-        ActiveXComponent powerPoint = new ActiveXComponent("PowerPoint.Application");
-        Dispatch presentations = powerPoint.getProperty("Presentations").toDispatch();
-        Dispatch presentation = Dispatch.call(presentations, "Open", filePath).toDispatch();
-        Variant variant = new Variant(false);
+        powerPoint = new ActiveXComponent("PowerPoint.Application");
+        presentations = powerPoint.getProperty("Presentations").toDispatch();
+        presentation = Dispatch.call(presentations, "Open", filePath).toDispatch();
+
         return Result.SUCCESS;
     }
 
     public Result stopPresentation(){
-        if (presentation == null && variant == null){
+        /*if (presentation == null && variant == null){
+            System.out.println("presentation is null");
             return Result.FAILURE;
         }
-        else{
-            Dispatch.call(presentation, "Close").toDispatch();
+        else{*/
+        if (powerPoint != null){
+            System.out.println(Dispatch.call(presentation, "Close"));
             return Result.SUCCESS;
         }
+        else return Result.FAILURE;
     }
 
 }

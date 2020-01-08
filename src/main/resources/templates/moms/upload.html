@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload your presentation</title>
+</head>
+<body>
+    <h1>Upload your .pptx presentation to display on the main screen</h1>
+    <hr/>
+    <form method="post" th:action="@{/moms}" enctype="multipart/form-data">
+        <input type="file" name="file"/><br/><br>
+        <button type="submit">Upload</button>
+    </form>
+<hr/>
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+</body>
+</html>

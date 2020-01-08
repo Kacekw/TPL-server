@@ -26,7 +26,7 @@ public class MainSiteController {
     @GetMapping
     public String index(HttpServletRequest request){
         //System.out.println(getClientHostName(request));
-        return "index";//"<b><center>Test serwera tpl</b></center>";
+        return "index"; // resources/templates/index.html
     }
 
     public String getClientHostName(HttpServletRequest request){

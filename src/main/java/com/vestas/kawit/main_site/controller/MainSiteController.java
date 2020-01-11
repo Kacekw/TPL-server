@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -22,9 +23,10 @@ public class MainSiteController {
     }
 
     @GetMapping
-    public String index(HttpServletRequest request){
-        //System.out.println(getClientHostName(request));
-        return "index"; // resources/templates/index.html
+    public ModelAndView index(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.setViewName("index");
+        return modelAndView; // resources/templates/index.html
     }
 
     public String getClientHostName(HttpServletRequest request){

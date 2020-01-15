@@ -14,7 +14,7 @@ public class OrderComponent {
     private String componentNo;
     @NotEmpty
     private String description;
-    private int requirement;
+    private String requirement;
     @NotEmpty
     private String itemCategory;
     @NotEmpty
@@ -25,7 +25,7 @@ public class OrderComponent {
     public OrderComponent() {
     }
 
-    public OrderComponent(@NotEmpty String componentNo, @NotEmpty String description, int requirement, @NotEmpty String itemCategory, @NotEmpty String operation, @NotEmpty String reservation) {
+    public OrderComponent(@NotEmpty String componentNo, @NotEmpty String description, String requirement, @NotEmpty String itemCategory, @NotEmpty String operation, @NotEmpty String reservation) {
         this.componentNo = componentNo;
         this.description = description;
         this.requirement = requirement;
@@ -58,11 +58,11 @@ public class OrderComponent {
         this.description = description;
     }
 
-    public int getRequirement() {
+    public String getRequirement() {
         return requirement;
     }
 
-    public void setRequirement(int requirement) {
+    public void setRequirement(String requirement) {
         this.requirement = requirement;
     }
 

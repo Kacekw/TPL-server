@@ -14,7 +14,7 @@ public class OrderComponent {
     private String componentNo;
     @NotEmpty
     private String description;
-    private int requirement;
+    private String requirement;
     @NotEmpty
     private String itemCategory;
     @NotEmpty
@@ -25,7 +25,7 @@ public class OrderComponent {
     public OrderComponent() {
     }
 
-    public OrderComponent(@NotEmpty String componentNo, @NotEmpty String description, int requirement, @NotEmpty String itemCategory, @NotEmpty String operation, @NotEmpty String reservation) {
+    public OrderComponent(@NotEmpty String componentNo, @NotEmpty String description, String requirement, @NotEmpty String itemCategory, @NotEmpty String operation, @NotEmpty String reservation) {
         this.componentNo = componentNo;
         this.description = description;
         this.requirement = requirement;
@@ -34,59 +34,59 @@ public class OrderComponent {
         this.reservation = reservation;
     }
 
-    private int getId() {
+    public int getId() {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private String getComponentNo() {
+    public String getComponentNo() {
         return componentNo;
     }
 
-    private void setComponentNo(String componentNo) {
+    public void setComponentNo(String componentNo) {
         this.componentNo = componentNo;
     }
 
-    private String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    private void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    private int getRequirement() {
+    public String getRequirement() {
         return requirement;
     }
 
-    private void setRequirement(int requirement) {
+    public void setRequirement(String requirement) {
         this.requirement = requirement;
     }
 
-    private String getItemCategory() {
+    public String getItemCategory() {
         return itemCategory;
     }
 
-    private void setItemCategory(String itemCategory) {
+    public void setItemCategory(String itemCategory) {
         this.itemCategory = itemCategory;
     }
 
-    private String getOperation() {
+    public String getOperation() {
         return operation;
     }
 
-    private void setOperation(String operation) {
+    public void setOperation(String operation) {
         this.operation = operation;
     }
 
-    private String getReservation() {
+    public String getReservation() {
         return reservation;
     }
 
-    private void setReservation(String reservation) {
+    public void setReservation(String reservation) {
         this.reservation = reservation;
     }
 

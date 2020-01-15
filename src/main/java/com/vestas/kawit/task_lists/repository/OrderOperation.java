@@ -44,35 +44,35 @@ public class OrderOperation {
         this.id = id;
     }
 
-    public String getOperation() {
+    private String getOperation() {
         return operation;
     }
 
-    public void setOperation(String operation) {
+    private void setOperation(String operation) {
         this.operation = operation;
     }
 
-    public String getOperationShortText() {
+    private String getOperationShortText() {
         return operationShortText;
     }
 
-    public void setOperationShortText(String operationShortText) {
+    private void setOperationShortText(String operationShortText) {
         this.operationShortText = operationShortText;
     }
 
-    public int getWorkingHours() {
+    private int getWorkingHours() {
         return workingHours;
     }
 
-    public void setWorkingHours(int workingHours) {
+    private void setWorkingHours(int workingHours) {
         this.workingHours = workingHours;
     }
 
-    public int getNumberOfTechnicians() {
+    private int getNumberOfTechnicians() {
         return numberOfTechnicians;
     }
 
-    public void setNumberOfTechnicians(int numberOfTechnicians) {
+    private void setNumberOfTechnicians(int numberOfTechnicians) {
         this.numberOfTechnicians = numberOfTechnicians;
     }
 

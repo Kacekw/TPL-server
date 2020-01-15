@@ -23,13 +23,14 @@ public class MainSiteController {
     }
 
     @GetMapping
-    public ModelAndView index(HttpServletRequest request){
+    public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.setViewName("index");
         return modelAndView; // resources/templates/index.html
     }
 
-    public String getClientHostName(HttpServletRequest request){
+    //TODO make use of it someday
+/*    public String getClientHostName(HttpServletRequest request){
         try{
             String clientAdress = request.getRemoteAddr();
             InetAddress inetAddress = InetAddress.getByName(clientAdress);
@@ -38,5 +39,5 @@ public class MainSiteController {
         catch(UnknownHostException e){
             return e.getMessage();
         }
-    }
+    }*/
 }

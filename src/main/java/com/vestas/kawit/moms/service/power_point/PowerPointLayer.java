@@ -8,7 +8,6 @@ public class PowerPointLayer {
 
     private Dispatch presentation;
     private Dispatch presentations;
-    private Dispatch slideShowSettings;
     private ActiveXComponent powerPoint;
 
 
@@ -19,14 +18,15 @@ public class PowerPointLayer {
         if (powerPoint == null) powerPoint = new ActiveXComponent("PowerPoint.Application");
         if (presentations == null) presentations = powerPoint.getProperty("Presentations").toDispatch();
         presentation = Dispatch.call(presentations, "Open", filePath).toDispatch();
-        slideShowSettings = Dispatch.call(presentation, "SlideShowSettings").toDispatch();
+        Dispatch slideShowSettings = Dispatch.call(presentation, "SlideShowSettings").toDispatch();
 
         Dispatch.call(slideShowSettings, "Run").toDispatch();
 
+        //TODO implement return value logging
         return Result.SUCCESS;
     }
 
-    public Result stopPresentation(){
+    private Result stopPresentation(){
         try {
             if (presentation != null) {
                 System.out.println("exiting");

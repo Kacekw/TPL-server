@@ -34,59 +34,59 @@ public class OrderComponent {
         this.reservation = reservation;
     }
 
-    public int getId() {
+    private int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    public String getComponentNo() {
+    private String getComponentNo() {
         return componentNo;
     }
 
-    public void setComponentNo(String componentNo) {
+    private void setComponentNo(String componentNo) {
         this.componentNo = componentNo;
     }
 
-    public String getDescription() {
+    private String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    private void setDescription(String description) {
         this.description = description;
     }
 
-    public int getRequirement() {
+    private int getRequirement() {
         return requirement;
     }
 
-    public void setRequirement(int requirement) {
+    private void setRequirement(int requirement) {
         this.requirement = requirement;
     }
 
-    public String getItemCategory() {
+    private String getItemCategory() {
         return itemCategory;
     }
 
-    public void setItemCategory(String itemCategory) {
+    private void setItemCategory(String itemCategory) {
         this.itemCategory = itemCategory;
     }
 
-    public String getOperation() {
+    private String getOperation() {
         return operation;
     }
 
-    public void setOperation(String operation) {
+    private void setOperation(String operation) {
         this.operation = operation;
     }
 
-    public String getReservation() {
+    private String getReservation() {
         return reservation;
     }
 
-    public void setReservation(String reservation) {
+    private void setReservation(String reservation) {
         this.reservation = reservation;
     }
 

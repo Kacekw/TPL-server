@@ -18,7 +18,7 @@ public class Log {
     private String backendStep;
     private Date date;
     @NotNull
-    private float orderNo;
+    private double orderNo;
     private String orderType;
 
     private String oldLongText;
@@ -29,7 +29,7 @@ public class Log {
     @NotNull
     private LogSubTypes subType;
 
-    public Log(@NotEmpty String user, String backendStep, Date date, @NotNull float orderNo, String orderType, String oldLongText, String newLongText, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
+    public Log(@NotEmpty String user, String backendStep, Date date, @NotNull double orderNo, String orderType, String oldLongText, String newLongText, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
         this.user = user;
         this.backendStep = backendStep;
         this.date = date;
@@ -73,7 +73,7 @@ public class Log {
         this.date = date;
     }
 
-    public float getOrderNo() {
+    public double getOrderNo() {
         return orderNo;
     }
 

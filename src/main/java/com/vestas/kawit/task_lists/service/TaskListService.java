@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
 import java.util.Collections;
@@ -44,8 +45,10 @@ public class TaskListService {
         Log log;
         log = new Log(taskList.getAuthor(), null, taskList.getDate(), taskList.getOrderNo(),
                "YM01", null, null, LogTypes.INFO, LogSubTypes.SCHEDULED);
+
         taskList.setDate(new Date(System.currentTimeMillis()));
         taskList.setPlantAndTaskList(Integer.parseInt(taskList.getPlant() + Integer.toString(taskList.getTaskList())));
+
         TaskListDTO addingResult = taskListDTOTransformer.transformToDto(taskListRepository.save(taskList));
         if (addingResult == null) {
             throw new IllegalArgumentException("Could not add the task list.");
@@ -56,6 +59,14 @@ public class TaskListService {
             return addingResult;
         }
 
+    }
+
+    public void remove(TaskList taskList){
+        try{
+            taskListRepository.delete(taskList);
+        }catch(IllegalArgumentException iae){
+            logger.error(iae.getMessage());
+        }
     }
 
     private List<TaskListDTO> supplyDataTransferObject(List<TaskList> taskListList) {

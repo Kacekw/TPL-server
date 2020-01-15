@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -21,8 +22,10 @@ public class MomsUploadingService {
     @Value("${app.upload.dir:${user.home}}")
     public String uploadDir;
 
-    public String upload(){
-        return "moms/upload";
+    public ModelAndView upload(){
+        ModelAndView uploadModelView = new ModelAndView("Upload");
+        uploadModelView.setViewName("moms/upload");
+        return uploadModelView;
     }
 
     public void uploadFile(MultipartFile file) {

@@ -31,12 +31,12 @@ public class TaskList {
     @NotEmpty
     private String author;
 
-    private double orderNo;
+    private int orderNo;
 
     public TaskList() {
     }
 
-    public TaskList(int plant, int taskList, int plantAndTaskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date, @NotEmpty String author, double orderNo) {
+    public TaskList(int plant, int taskList, int plantAndTaskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date, @NotEmpty String author, int orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
@@ -112,11 +112,11 @@ public class TaskList {
         this.author = author;
     }
 
-    public double getOrderNo() {
+    public int getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(float orderNo) {
+    public void setOrderNo(int orderNo) {
         this.orderNo = orderNo;
     }
 }

@@ -17,9 +17,9 @@ public class TaskListDTO {
 
     private Date date;
     private String author;
-    private Double orderNo;
+    private int orderNo;
 
-    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author, double orderNo) {
+    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author, int orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
@@ -86,11 +86,11 @@ public class TaskListDTO {
         this.author = author;
     }
 
-    public double getOrderNo() {
+    public int getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(double orderNo) {
+    public void setOrderNo(int orderNo) {
         this.orderNo = orderNo;
     }
 

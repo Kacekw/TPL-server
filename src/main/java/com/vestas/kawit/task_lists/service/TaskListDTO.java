@@ -17,9 +17,9 @@ public class TaskListDTO {
 
     private Date date;
     private String author;
-    private int orderNo;
+    private Double orderNo;
 
-    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author, int orderNo) {
+    private TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author, double orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
@@ -30,7 +30,7 @@ public class TaskListDTO {
         this.orderNo = orderNo;
     }
 
-    public int getPlant() {
+    private int getPlant() {
         return plant;
     }
 
@@ -38,7 +38,7 @@ public class TaskListDTO {
         this.plant = plant;
     }
 
-    public int getTaskList() {
+    private int getTaskList() {
         return taskList;
     }
 
@@ -46,7 +46,7 @@ public class TaskListDTO {
         this.taskList = taskList;
     }
 
-    public String getLongText() {
+    private String getLongText() {
         return longText;
     }
 
@@ -54,7 +54,7 @@ public class TaskListDTO {
         this.longText = longText;
     }
 
-    public List<OrderOperation> getOperations() {
+    private List<OrderOperation> getOperations() {
         return operations;
     }
 
@@ -62,7 +62,7 @@ public class TaskListDTO {
         this.operations = operations;
     }
 
-    public List<OrderComponent> getComponents() {
+    private List<OrderComponent> getComponents() {
         return components;
     }
 
@@ -70,7 +70,7 @@ public class TaskListDTO {
         this.components = components;
     }
 
-    public Date getDate() {
+    private Date getDate() {
         return date;
     }
 
@@ -78,7 +78,7 @@ public class TaskListDTO {
         this.date = date;
     }
 
-    public String getAuthor() {
+    private String getAuthor() {
         return author;
     }
 
@@ -86,11 +86,11 @@ public class TaskListDTO {
         this.author = author;
     }
 
-    public int getOrderNo() {
+    private double getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(int orderNo) {
+    public void setOrderNo(double orderNo) {
         this.orderNo = orderNo;
     }
 

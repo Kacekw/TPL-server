@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
 import java.util.Collections;
@@ -61,6 +60,7 @@ public class TaskListService {
 
     }
 
+    //TODO implement that method in controller
     public void remove(TaskList taskList){
         try{
             taskListRepository.delete(taskList);

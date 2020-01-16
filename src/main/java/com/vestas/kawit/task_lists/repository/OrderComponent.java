@@ -42,7 +42,7 @@ public class OrderComponent {
         this.id = id;
     }
 
-    public String getComponentNo() {
+    private String getComponentNo() {
         return componentNo;
     }
 
@@ -50,7 +50,7 @@ public class OrderComponent {
         this.componentNo = componentNo;
     }
 
-    public String getDescription() {
+    private String getDescription() {
         return description;
     }
 
@@ -58,7 +58,7 @@ public class OrderComponent {
         this.description = description;
     }
 
-    public String getRequirement() {
+    private String getRequirement() {
         return requirement;
     }
 
@@ -66,7 +66,7 @@ public class OrderComponent {
         this.requirement = requirement;
     }
 
-    public String getItemCategory() {
+    private String getItemCategory() {
         return itemCategory;
     }
 
@@ -74,7 +74,7 @@ public class OrderComponent {
         this.itemCategory = itemCategory;
     }
 
-    public String getOperation() {
+    private String getOperation() {
         return operation;
     }
 
@@ -82,7 +82,7 @@ public class OrderComponent {
         this.operation = operation;
     }
 
-    public String getReservation() {
+    private String getReservation() {
         return reservation;
     }
 

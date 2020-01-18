@@ -1,6 +1,6 @@
 package com.vestas.kawit.moms.service;
 
-import com.vestas.kawit.moms.service.power_point.PowerPointLayer;
+import com.vestas.kawit.windows_layer.power_point.PowerPointLayer;
 import com.vestas.kawit.web_error_handler.exceptions.FileStorageException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

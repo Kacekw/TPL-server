@@ -1,4 +1,4 @@
-package com.vestas.kawit.moms.service.power_point;
+package com.vestas.kawit.windows_layer.power_point;
 
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.ComFailException;
@@ -38,6 +38,11 @@ public class PowerPointLayer {
             cfe.printStackTrace();
             return Result.FAILURE;
         }
+    }
+
+    enum Result {
+
+        SUCCESS, FAILURE
     }
 
 }

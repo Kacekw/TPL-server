@@ -1,5 +1,7 @@
 package com.vestas.kawit.task_lists.repository;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -10,13 +12,16 @@ import java.util.List;
 @Entity
 public class TaskList {
 
-    private int plant;
-    private int taskList;
     @Id
-    private int plantAndTaskList;
-
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String id;
+    private int plant;
+    @Column(name = "task_list_group_number")
+    private int taskList;
     @NotNull
     @NotEmpty(message = "Long text cannot be empty.")
+    @Column(name = "long_text")
     private String longText;
     @NotEmpty(message = "Operations cannot be empty.")
     @ElementCollection(targetClass = OrderOperation.class)
@@ -31,19 +36,19 @@ public class TaskList {
     @NotEmpty
     private String author;
 
+    @Column(name = "order_no")
     private int orderNo;
 
     public TaskList() {
     }
 
-    public TaskList(int plant, int taskList, int plantAndTaskList, @NotNull @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date, @NotEmpty String author, int orderNo) {
+    public TaskList(int plant, int taskList, @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date, @NotEmpty String author, int orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
         this.operations = operations;
         this.components = components;
         this.date = date;
-        this.plantAndTaskList = plantAndTaskList;
         this.author = author;
         this.orderNo = orderNo;
     }
@@ -64,12 +69,12 @@ public class TaskList {
         this.taskList = taskList;
     }
 
-    public int getPlantAndTaskList() {
-        return plantAndTaskList;
+    public String getId() {
+        return id;
     }
 
-    public void setPlantAndTaskList(int plantAndTaskList) {
-        this.plantAndTaskList = plantAndTaskList;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getLongText() {

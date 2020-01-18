@@ -46,7 +46,6 @@ public class TaskListService {
                "YM01", null, null, LogTypes.INFO, LogSubTypes.SCHEDULED);
 
         taskList.setDate(new Date(System.currentTimeMillis()));
-        taskList.setPlantAndTaskList(Integer.parseInt(taskList.getPlant() + Integer.toString(taskList.getTaskList())));
 
         TaskListDTO addingResult = taskListDTOTransformer.transformToDto(taskListRepository.save(taskList));
         if (addingResult == null) {

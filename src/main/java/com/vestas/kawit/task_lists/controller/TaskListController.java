@@ -25,6 +25,7 @@ public class TaskListController {
         return taskListService.getAll(plant, taskList);
     }
 
+    //TODO make it so that server would accept only DTO object as it should be
     @PostMapping
     public TaskListDTO add(@Valid @RequestBody TaskList taskList) {
         return taskListService.add(taskList);

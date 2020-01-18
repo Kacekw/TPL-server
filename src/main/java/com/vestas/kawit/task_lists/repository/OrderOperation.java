@@ -2,6 +2,7 @@ package com.vestas.kawit.task_lists.repository;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,10 +21,13 @@ public class OrderOperation {
     private String operation;
     @NotEmpty
     @Length(max = 40)
+    @Column(name = "operation_short_text")
     private String operationShortText;
     @NotNull
+    @Column(name = "working_hours:")
     private int workingHours;
     @Min(1)
+    @Column(name = "number_of_technicians")
     private int numberOfTechnicians;
 
     public OrderOperation() {

@@ -1,5 +1,6 @@
 package com.vestas.kawit.task_lists.repository;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,11 +12,13 @@ public class OrderComponent {
     @Id @GeneratedValue
     private int id;
     @NotEmpty
+    @Column(name = "component_no")
     private String componentNo;
     @NotEmpty
     private String description;
     private String requirement;
     @NotEmpty
+    @Column(name = "item_category")
     private String itemCategory;
     @NotEmpty
     private String operation;

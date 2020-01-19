@@ -56,7 +56,6 @@ public class TaskListService {
             internalLogger.createLogEntry(log);
             return addingResult;
         }
-
     }
 
     //TODO implement that method in controller

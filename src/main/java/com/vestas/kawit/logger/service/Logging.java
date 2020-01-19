@@ -10,7 +10,6 @@ public class Logging {
     private final LogRepository logRepository;
 
     @Autowired
-
     public Logging(LogRepository logRepository) {
         this.logRepository = logRepository;
     }

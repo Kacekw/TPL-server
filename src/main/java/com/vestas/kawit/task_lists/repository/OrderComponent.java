@@ -9,7 +9,8 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class OrderComponent {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     @NotEmpty
     @Column(name = "component_no")
@@ -45,7 +46,7 @@ public class OrderComponent {
         this.id = id;
     }
 
-    private String getComponentNo() {
+    public String getComponentNo() {
         return componentNo;
     }
 
@@ -53,7 +54,7 @@ public class OrderComponent {
         this.componentNo = componentNo;
     }
 
-    private String getDescription() {
+    public String getDescription() {
         return description;
     }
 
@@ -61,7 +62,7 @@ public class OrderComponent {
         this.description = description;
     }
 
-    private String getRequirement() {
+    public String getRequirement() {
         return requirement;
     }
 
@@ -69,7 +70,7 @@ public class OrderComponent {
         this.requirement = requirement;
     }
 
-    private String getItemCategory() {
+    public String getItemCategory() {
         return itemCategory;
     }
 
@@ -77,7 +78,7 @@ public class OrderComponent {
         this.itemCategory = itemCategory;
     }
 
-    private String getOperation() {
+    public String getOperation() {
         return operation;
     }
 
@@ -85,7 +86,7 @@ public class OrderComponent {
         this.operation = operation;
     }
 
-    private String getReservation() {
+    public String getReservation() {
         return reservation;
     }
 

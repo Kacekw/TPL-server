@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../../css/gtvg.css" th:href="@{/css/gtvg.css}"/>
+</head>
+
+<body>
+
+<h1>Task Lists:</h1>
+
+<div th:each="taskList : ${TaskListsCollection}">
+    <hr>
+    <h3 th:text="${taskList.getAuthor()}"></h3>
+    <h3 th:text="${taskList.getDate()}"></h3>
+    <br>
+    <table>
+        <tr style="background-color:gray;color:black;">
+            <th> Long text</th>
+        </tr>
+        <tr>
+            <td><pre th:text="${taskList.getLongText()}"></pre></td>
+        </tr>
+    </table>
+    <br><br>
+    <table>
+        <tr style="background-color:gray;color:black;">
+            <th> Operation</th>
+            <th> Operation short text</th>
+            <th> Working hours</th>
+            <th> Number of technicians</th>
+        </tr>
+
+        <tr th:each="operation : ${taskList.getOperations()}">
+            <td th:text="${operation.getOperation()}">Operation number</td>
+            <td th:text="${operation.getOperationShortText()}">6 months Service</td>
+            <td th:text="${operation.getWorkingHours()}">Working hours</td>
+            <td th:text="${operation.getNumberOfTechnicians()}">Number of technicians</td>
+        </tr>
+    </table>
+    <br><br>
+    <table>
+        <tr style="background-color:gray;color:black;">
+            <th> Component</th>
+            <th> Description</th>
+            <th> Reqmt</th>
+            <th> Item Category (IC)</th>
+            <th> Operation</th>
+            <th> Ind.: Reservation/Pur.Req.</th>
+        </tr>
+
+        <tr th:each="component : ${taskList.getComponents()}">
+            <td th:text="${component.getComponentNo()}">149156</td>
+            <td th:text="${component.getDescription()}">SHELL GADUS S5 T460 1.5</td>
+            <td th:text="${component.getRequirement()}">1</td>
+            <td th:text="${component.getItemCategory()}">L</td>
+            <td th:text="${component.getOperation()}">0010</td>
+            <td th:text="${component.getReservation()}">>Immediately</td>
+        </tr>
+    </table>
+    <br>
+
+</div>
+
+<!--<p>-->
+<!--    <a href="../home.html" th:href="@{/}">Return to home</a>-->
+<!--</p>-->
+
+</body>
+
+</html>
+<body>
+
+</body>
+</html>

@@ -24,7 +24,7 @@ public class OrderOperation {
     @Column(name = "operation_short_text")
     private String operationShortText;
     @NotNull
-    @Column(name = "working_hours:")
+    @Column(name = "working_hours")
     private int workingHours;
     @Min(1)
     @Column(name = "number_of_technicians")
@@ -48,35 +48,35 @@ public class OrderOperation {
         this.id = id;
     }
 
-    private String getOperation() {
+    public String getOperation() {
         return operation;
     }
 
-    private void setOperation(String operation) {
+    public void setOperation(String operation) {
         this.operation = operation;
     }
 
-    private String getOperationShortText() {
+    public String getOperationShortText() {
         return operationShortText;
     }
 
-    private void setOperationShortText(String operationShortText) {
+    public void setOperationShortText(String operationShortText) {
         this.operationShortText = operationShortText;
     }
 
-    private int getWorkingHours() {
+    public int getWorkingHours() {
         return workingHours;
     }
 
-    private void setWorkingHours(int workingHours) {
+    public void setWorkingHours(int workingHours) {
         this.workingHours = workingHours;
     }
 
-    private int getNumberOfTechnicians() {
+    public int getNumberOfTechnicians() {
         return numberOfTechnicians;
     }
 
-    private void setNumberOfTechnicians(int numberOfTechnicians) {
+    public void setNumberOfTechnicians(int numberOfTechnicians) {
         this.numberOfTechnicians = numberOfTechnicians;
     }
 

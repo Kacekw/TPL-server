@@ -21,12 +21,14 @@ public class TaskList {
     private int taskList;
     @NotNull
     @NotEmpty(message = "Long text cannot be empty.")
-    @Column(name = "long_text")
+    @Column(name = "long_text", columnDefinition = "LONGTEXT")
     private String longText;
+
     @NotEmpty(message = "Operations cannot be empty.")
     @ElementCollection(targetClass = OrderOperation.class)
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderOperation> operations;
+
     @ElementCollection(targetClass = OrderComponent.class)
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderComponent> components;

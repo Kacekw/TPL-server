@@ -30,7 +30,7 @@ public class TaskListDTO {
         this.orderNo = orderNo;
     }
 
-    private int getPlant() {
+    public int getPlant() {
         return plant;
     }
 
@@ -38,7 +38,7 @@ public class TaskListDTO {
         this.plant = plant;
     }
 
-    private int getTaskList() {
+    public int getTaskList() {
         return taskList;
     }
 
@@ -46,7 +46,7 @@ public class TaskListDTO {
         this.taskList = taskList;
     }
 
-    private String getLongText() {
+    public String getLongText() {
         return longText;
     }
 
@@ -54,7 +54,7 @@ public class TaskListDTO {
         this.longText = longText;
     }
 
-    private List<OrderOperation> getOperations() {
+    public List<OrderOperation> getOperations() {
         return operations;
     }
 
@@ -62,7 +62,7 @@ public class TaskListDTO {
         this.operations = operations;
     }
 
-    private List<OrderComponent> getComponents() {
+    public List<OrderComponent> getComponents() {
         return components;
     }
 
@@ -70,7 +70,7 @@ public class TaskListDTO {
         this.components = components;
     }
 
-    private Date getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -78,7 +78,7 @@ public class TaskListDTO {
         this.date = date;
     }
 
-    private String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
@@ -86,7 +86,7 @@ public class TaskListDTO {
         this.author = author;
     }
 
-    private int getOrderNo() {
+    public int getOrderNo() {
         return orderNo;
     }
 

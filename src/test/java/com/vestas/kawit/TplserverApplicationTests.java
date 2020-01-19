@@ -39,13 +39,13 @@ class TplserverApplicationTests {
         OrderOperation orderOperation = new OrderOperation("0010", "short text example", 21, 3);
         List<OrderOperation> orderOperationsList = new ArrayList<>();
 
-        OrderComponent orderComponent = new OrderComponent("123123", "description", 3, "L", "0020", "Never");
+        OrderComponent orderComponent = new OrderComponent("123123", "description", "3", "L", "0020", "Never");
         List<OrderComponent> orderComponentList = new ArrayList<>();
 
         orderComponentList.add(orderComponent);
         orderOperationsList.add(orderOperation);
 
-        final TaskList taskList = new TaskList(3210, 15601, 0, "the long text goes here",
+        final TaskList taskList = new TaskList(3210, 15601,"the long text goes here",
                 orderOperationsList, orderComponentList, null, "KAWIT", 0);
 
         //when

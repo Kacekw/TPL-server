@@ -21,22 +21,17 @@ public class Log {
     private double orderNo;
     private String orderType;
 
-    private String oldLongText;
-    private String newLongText;
-
     @NotNull
     private LogTypes type;
     @NotNull
     private LogSubTypes subType;
 
-    public Log(@NotEmpty String user, String backendStep, Date date, @NotNull double orderNo, String orderType, String oldLongText, String newLongText, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
+    public Log(@NotEmpty String user, String backendStep, Date date, @NotNull double orderNo, String orderType, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
         this.user = user;
         this.backendStep = backendStep;
         this.date = date;
         this.orderNo = orderNo;
         this.orderType = orderType;
-        this.oldLongText = oldLongText;
-        this.newLongText = newLongText;
         this.type = type;
         this.subType = subType;
     }
@@ -87,22 +82,6 @@ public class Log {
 
     public void setOrderType(String orderType) {
         this.orderType = orderType;
-    }
-
-    public String getOldLongText() {
-        return oldLongText;
-    }
-
-    public void setOldLongText(String oldLongText) {
-        this.oldLongText = oldLongText;
-    }
-
-    public String getNewLongText() {
-        return newLongText;
-    }
-
-    public void setNewLongText(String newLongText) {
-        this.newLongText = newLongText;
     }
 
     public LogTypes getType() {

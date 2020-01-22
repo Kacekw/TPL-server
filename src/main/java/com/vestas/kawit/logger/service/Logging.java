@@ -14,7 +14,7 @@ public class Logging {
         this.logRepository = logRepository;
     }
 
-    public void createLogEntry(Log log){
-        logRepository.save(log);
+    public Log createLogEntry(Log log) {
+        return logRepository.save(log);
     }
 }

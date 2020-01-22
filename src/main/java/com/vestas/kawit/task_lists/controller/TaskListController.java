@@ -22,15 +22,15 @@ public class TaskListController {
     }
 
     @GetMapping
-    public ModelAndView taskListsGraphically (){
-        ModelAndView mav = new ModelAndView("task_lists/tasklists");
-        mav.addObject("TaskListsCollection", getAllTaskLists(null, null));
-        return mav;
+    public List<TaskListDTO> getTaskLists(@RequestParam(required = false) String plant, String taskList){
+            return taskListService.getAll(plant, taskList);
     }
 
-    @GetMapping("/json")
-    public List<TaskListDTO> getAllTaskLists(@RequestParam(required = false) String plant, String taskList) {
-        return taskListService.getAll(plant, taskList);
+    @GetMapping("/all")
+    public ModelAndView taskListsGraphically (){
+        ModelAndView mav = new ModelAndView("task_lists/tasklists");
+        mav.addObject("TaskListsCollection", getTaskLists(null, null));
+        return mav;
     }
 
     //TODO make it so that server would accept only DTO object as it should be

@@ -32,18 +32,17 @@ public class TaskListService {
         this.internalLogger = logging;
     }
 
-    public List<TaskListDTO> getAll(@RequestParam(required = false) String plant, String taskList) {
+    public List<TaskListDTO> getAll(String plant, String taskList) {
         if (plant == null || taskList == null) {
             return supplyDataTransferObject(taskListRepository.findAll());
         }
-        int id = Integer.parseInt(plant + taskList);
-        return supplyDataTransferObject(taskListRepository.findAllById(Collections.singletonList(id)));
+        return supplyDataTransferObject(taskListRepository.findByPlantAndTaskList(Integer.parseInt(plant), Integer.parseInt(taskList)));
     }
 
     public TaskListDTO add(TaskList taskList) {
         Log log;
         log = new Log(taskList.getAuthor(), null, taskList.getDate(), taskList.getOrderNo(),
-               "YM01", null, null, LogTypes.INFO, LogSubTypes.SCHEDULED);
+               "YM01", LogTypes.INFO, LogSubTypes.SCHEDULED);
 
         taskList.setDate(new Date(System.currentTimeMillis()));
 

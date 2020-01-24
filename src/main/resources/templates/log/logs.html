@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Logs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../../css/gtvg.css" th:href="@{/css/gtvg.css}"/>
+    <style>
+	table, th, td {
+		border: 2px solid black;
+		border-collapse: collapse;
+	}
+	th, td {
+		padding: 3px;
+	}
+			th {
+				text-align: left;
+			}
+	</style>
+</head>
+
+<body>
+
+<h1>Logs:</h1>
+
+<div>
+    <hr>
+    <br>
+    <table>
+        <tr style="background-color:gray;color:black;">
+            <th>User</th>
+            <th>Module</th>
+            <th>Backend step</th>
+            <th>Timestamp</th>
+            <th>Order number</th>
+            <th>Order type</th>
+            <th>Order subtype</th>
+            <th>Aspect</th>
+        </tr>
+        <tr th:each="log : ${LogsCollection}">
+            <td th:text="${log.getUser()}">User</td>
+            <td th:text="${log.getModule()}">Module</td>
+            <td th:text="${log.getBackendStep()}">Backend step</td>
+            <td th:text="${log.getTimestamp()}">Timestamp</td>
+            <td th:text="${log.getOrderNo()}">Order number</td>
+            <td th:text="${log.getOrderType()}">Order type</td>
+            <td th:text="${log.getSubType()}">Order sub type</td>
+            <td th:text="${log.getType()}">Aspect</td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+
+</html>
+<body>

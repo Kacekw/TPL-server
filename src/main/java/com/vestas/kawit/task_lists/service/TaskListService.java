@@ -13,8 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +27,12 @@ public class TaskListService {
     private final Logger logger = LoggerFactory.getLogger(LoggerFactory.class);
     private final Logging internalLogger;
 
+    static final String ADDING_TASK_LIST_TO_DATABASE_ERROR = "Could not add the task list.";
+    static final String READING_TASK_LIST_FROM_DATABASE_ERROR = "Could not find the task list.";
+    static final String ADDING_TASK_LIST_TO_DATABASE_SUCCESS = "New task List added!";
+    static final String SCHEDULED_SERVICE_MODULE_SAVING_TASK_LIST = "saving task list";
+    static final String SCHEDULED_SERVICE_MODULE_READING_TASK_LIST = "reading task list";
+
     @Autowired
     public TaskListService(TaskListRepository taskListRepository, TaskListDTOTransformer taskListDTOTransformer, Logging logging) {
         this.taskListRepository = taskListRepository;
@@ -32,36 +40,69 @@ public class TaskListService {
         this.internalLogger = logging;
     }
 
-    public List<TaskListDTO> getAll(String plant, String taskList) {
+    public List<TaskListDTO> getAll(String userMakingRequest, String plant, String taskList) {
+        List<TaskListDTO> getAllResult;
+        Log log = new Log(userMakingRequest,
+                SCHEDULED_SERVICE_MODULE_READING_TASK_LIST,
+                null,
+                new Timestamp(System.currentTimeMillis()),
+                0,
+                "YM01",
+                LogTypes.INFO,
+                LogSubTypes.SCHEDULED);
+
+        System.out.println(new Date(System.currentTimeMillis()));
+
         if (plant == null || taskList == null) {
-            return supplyDataTransferObject(taskListRepository.findAll());
+            getAllResult = supplyDataTransferObject(taskListRepository.findAll());
+        } else {
+            getAllResult = supplyDataTransferObject(taskListRepository.findByPlantAndTaskList(Integer.parseInt(plant), Integer.parseInt(taskList)));
+            if (!getAllResult.isEmpty()) {
+                log.setOrderNo(getAllResult.get(0).getOrderNo());
+            }
+            else{
+                log.setType(LogTypes.ERROR);
+                internalLogger.createLogEntry(log);
+                throw new IllegalArgumentException(READING_TASK_LIST_FROM_DATABASE_ERROR);
+            }
         }
-        return supplyDataTransferObject(taskListRepository.findByPlantAndTaskList(Integer.parseInt(plant), Integer.parseInt(taskList)));
+        internalLogger.createLogEntry(log);
+
+        return getAllResult;
     }
 
     public TaskListDTO add(TaskList taskList) {
-        Log log;
-        log = new Log(taskList.getAuthor(), null, taskList.getDate(), taskList.getOrderNo(),
-               "YM01", LogTypes.INFO, LogSubTypes.SCHEDULED);
+        taskList.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
-        taskList.setDate(new Date(System.currentTimeMillis()));
+        Log log = new Log(taskList.getAuthor(),
+                SCHEDULED_SERVICE_MODULE_SAVING_TASK_LIST,
+               null,
+                taskList.getTimestamp(),
+                taskList.getOrderNo(),
+                "YM01",
+                null,
+                LogSubTypes.SCHEDULED);
 
         TaskListDTO addingResult = taskListDTOTransformer.transformToDto(taskListRepository.save(taskList));
         if (addingResult == null) {
-            throw new IllegalArgumentException("Could not add the task list.");
+            log.setType(LogTypes.ERROR);
+            internalLogger.createLogEntry(log);
+
+            throw new IllegalArgumentException(ADDING_TASK_LIST_TO_DATABASE_ERROR);
         } else {
-            logger.info(String.format("%s \n%s", "New task List added!",
-                    taskListDTOTransformer.transformToDto(taskList).toString()));
+            logger.info(ADDING_TASK_LIST_TO_DATABASE_SUCCESS);
+
+            log.setType(LogTypes.INFO);
             internalLogger.createLogEntry(log);
             return addingResult;
         }
     }
 
     //TODO implement that method in controller
-    public void remove(TaskList taskList){
-        try{
+    public void remove(TaskList taskList) {
+        try {
             taskListRepository.delete(taskList);
-        }catch(IllegalArgumentException iae){
+        } catch (IllegalArgumentException iae) {
             logger.error(iae.getMessage());
         }
     }

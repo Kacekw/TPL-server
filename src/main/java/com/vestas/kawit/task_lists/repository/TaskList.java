@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -33,7 +34,7 @@ public class TaskList {
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderComponent> components;
 
-    private Date date;
+    private Timestamp timestamp;
 
     @NotEmpty
     private String author;
@@ -44,13 +45,13 @@ public class TaskList {
     public TaskList() {
     }
 
-    public TaskList(int plant, int taskList, @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Date date, @NotEmpty String author, int orderNo) {
+    public TaskList(int plant, int taskList, @NotEmpty(message = "Long text cannot be empty.") String longText, @NotEmpty(message = "Operations cannot be empty.") List<OrderOperation> operations, List<OrderComponent> components, Timestamp timestamp, @NotEmpty String author, int orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
         this.operations = operations;
         this.components = components;
-        this.date = date;
+        this.timestamp = timestamp;
         this.author = author;
         this.orderNo = orderNo;
     }
@@ -103,12 +104,12 @@ public class TaskList {
         this.components = components;
     }
 
-    public Date getDate() {
-        return date;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getAuthor() {

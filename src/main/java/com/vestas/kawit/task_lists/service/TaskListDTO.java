@@ -4,6 +4,7 @@ import com.vestas.kawit.task_lists.repository.OrderComponent;
 import com.vestas.kawit.task_lists.repository.OrderOperation;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class TaskListDTO {
@@ -15,17 +16,17 @@ public class TaskListDTO {
     private List<OrderOperation> operations;
     private List<OrderComponent> components;
 
-    private Date date;
+    private Timestamp timestamp;
     private String author;
     private int orderNo;
 
-    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Date date, String author, int orderNo) {
+    public TaskListDTO(int plant, int taskList, String longText, List<OrderOperation> operations, List<OrderComponent> components, Timestamp timestamp, String author, int orderNo) {
         this.plant = plant;
         this.taskList = taskList;
         this.longText = longText;
         this.operations = operations;
         this.components = components;
-        this.date = date;
+        this.timestamp = timestamp;
         this.author = author;
         this.orderNo = orderNo;
     }
@@ -70,12 +71,12 @@ public class TaskListDTO {
         this.components = components;
     }
 
-    public Date getDate() {
-        return date;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getAuthor() {
@@ -103,7 +104,7 @@ public class TaskListDTO {
                 "Operations: %s\n" +
                 "Components: %s\n" +
                 "Order no: %s",
-                getAuthor(), getDate(),
+                getAuthor(), getTimestamp(),
                 getPlant(),
                 getTaskList(),
                 getLongText(),

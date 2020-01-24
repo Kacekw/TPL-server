@@ -14,7 +14,7 @@ public class TaskListDTOTransformer {
                 taskList.getLongText(),
                 taskList.getOperations(),
                 taskList.getComponents(),
-                taskList.getDate(),
+                taskList.getTimestamp(),
                 taskList.getAuthor(),
                 taskList.getOrderNo()
         );

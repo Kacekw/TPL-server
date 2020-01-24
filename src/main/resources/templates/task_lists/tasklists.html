@@ -2,10 +2,22 @@
 xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Good Thymes Virtual Grocery</title>
+    <title>Task Lists</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" media="all"
           href="../../../css/gtvg.css" th:href="@{/css/gtvg.css}"/>
+    <style>
+	table, th, td {
+		border: 2px solid black;
+		border-collapse: collapse;
+	}
+	th, td {
+		padding: 3px;
+	}
+			th {
+				text-align: left;
+			}
+    </style>
 </head>
 
 <body>
@@ -15,7 +27,7 @@ xmlns:th="http://www.thymeleaf.org">
 <div th:each="taskList : ${TaskListsCollection}">
     <hr>
     <h3 th:text="${taskList.getAuthor()}"></h3>
-    <h3 th:text="${taskList.getDate()}"></h3>
+    <h3 th:text="${taskList.getTimestamp()}"></h3>
     <br>
     <table>
         <tr style="background-color:gray;color:black;">
@@ -65,14 +77,6 @@ xmlns:th="http://www.thymeleaf.org">
 
 </div>
 
-<!--<p>-->
-<!--    <a href="../home.html" th:href="@{/}">Return to home</a>-->
-<!--</p>-->
-
 </body>
 
-</html>
-<body>
-
-</body>
 </html>

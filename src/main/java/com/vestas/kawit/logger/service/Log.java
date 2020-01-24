@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 public class Log {
@@ -15,10 +16,12 @@ public class Log {
     private long id;
     @NotEmpty
     private String user;
+    private String module;
     private String backendStep;
-    private Date date;
+    private Timestamp timestamp;
+
     @NotNull
-    private double orderNo;
+    private int orderNo;
     private String orderType;
 
     @NotNull
@@ -26,10 +29,14 @@ public class Log {
     @NotNull
     private LogSubTypes subType;
 
-    public Log(@NotEmpty String user, String backendStep, Date date, @NotNull double orderNo, String orderType, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
+    public Log() {
+    }
+
+    public Log(@NotEmpty String user, String module, String backendStep, Timestamp timestamp, @NotNull int orderNo, String orderType, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
         this.user = user;
+        this.module = module;
         this.backendStep = backendStep;
-        this.date = date;
+        this.timestamp = timestamp;
         this.orderNo = orderNo;
         this.orderType = orderType;
         this.type = type;
@@ -52,6 +59,14 @@ public class Log {
         this.user = user;
     }
 
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
+
     public String getBackendStep() {
         return backendStep;
     }
@@ -60,19 +75,19 @@ public class Log {
         this.backendStep = backendStep;
     }
 
-    public Date getDate() {
-        return date;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public double getOrderNo() {
+    public int getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(float orderNo) {
+    public void setOrderNo(int orderNo) {
         this.orderNo = orderNo;
     }
 

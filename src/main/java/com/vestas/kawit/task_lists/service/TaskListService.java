@@ -51,8 +51,6 @@ public class TaskListService {
                 LogTypes.INFO,
                 LogSubTypes.SCHEDULED);
 
-        System.out.println(new Date(System.currentTimeMillis()));
-
         if (plant == null || taskList == null) {
             getAllResult = supplyDataTransferObject(taskListRepository.findAll());
         } else {

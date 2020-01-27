@@ -2,5 +2,5 @@ package com.vestas.kawit.logger.service;
 
 public enum LogSubTypes {
 
-    UNSCHEDULED, SCHEDULED, BACKEND
+    UNSCHEDULED, SCHEDULED, BACKEND, SYSTEM
 }

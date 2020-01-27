@@ -42,10 +42,11 @@ public class TaskListService {
 
     public List<TaskListDTO> getAll(String userMakingRequest, String plant, String taskList) {
         List<TaskListDTO> getAllResult;
+
         Log log = new Log(userMakingRequest,
                 SCHEDULED_SERVICE_MODULE_READING_TASK_LIST,
                 null,
-                new Timestamp(System.currentTimeMillis()),
+                null,
                 0,
                 "YM01",
                 LogTypes.INFO,
@@ -60,10 +61,10 @@ public class TaskListService {
             }
             else{
                 log.setType(LogTypes.ERROR);
-                internalLogger.createLogEntry(log);
                 throw new IllegalArgumentException(READING_TASK_LIST_FROM_DATABASE_ERROR);
             }
         }
+
         internalLogger.createLogEntry(log);
 
         return getAllResult;
@@ -75,13 +76,14 @@ public class TaskListService {
         Log log = new Log(taskList.getAuthor(),
                 SCHEDULED_SERVICE_MODULE_SAVING_TASK_LIST,
                null,
-                taskList.getTimestamp(),
+                null,
                 taskList.getOrderNo(),
                 "YM01",
                 null,
                 LogSubTypes.SCHEDULED);
 
         TaskListDTO addingResult = taskListDTOTransformer.transformToDto(taskListRepository.save(taskList));
+
         if (addingResult == null) {
             log.setType(LogTypes.ERROR);
             internalLogger.createLogEntry(log);

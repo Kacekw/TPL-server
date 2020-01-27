@@ -35,7 +35,7 @@ public class TaskListController {
     @GetMapping("/all")
     public ModelAndView taskListsGraphically() {
         ModelAndView mav = new ModelAndView("task_lists/tasklists");
-        mav.addObject("TaskListsCollection", getTaskLists(WEB_CONTROLLER_NAME, null, null));
+        mav.addObject("TaskListsCollection", taskListService.getAll(WEB_CONTROLLER_NAME, null, null));
         return mav;
     }
 

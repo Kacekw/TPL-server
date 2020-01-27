@@ -16,11 +16,12 @@ public class Log {
     private long id;
     @NotEmpty
     private String user;
+    @NotEmpty
     private String module;
     private String backendStep;
+    @NotNull
     private Timestamp timestamp;
 
-    @NotNull
     private int orderNo;
     private String orderType;
 
@@ -29,10 +30,12 @@ public class Log {
     @NotNull
     private LogSubTypes subType;
 
+    private String additionalDescription;
+
     public Log() {
     }
 
-    public Log(@NotEmpty String user, String module, String backendStep, Timestamp timestamp, @NotNull int orderNo, String orderType, @NotNull LogTypes type, @NotNull LogSubTypes subType) {
+    public Log(@NotEmpty String user, String module, String backendStep, Timestamp timestamp, @NotNull int orderNo, String orderType, @NotNull LogTypes type, @NotNull LogSubTypes subType, String additionalDescription) {
         this.user = user;
         this.module = module;
         this.backendStep = backendStep;
@@ -41,6 +44,7 @@ public class Log {
         this.orderType = orderType;
         this.type = type;
         this.subType = subType;
+        this.additionalDescription = additionalDescription;
     }
 
     public long getId() {
@@ -113,5 +117,13 @@ public class Log {
 
     public void setSubType(LogSubTypes subType) {
         this.subType = subType;
+    }
+
+    public String getAdditionalDescription() {
+        return additionalDescription;
+    }
+
+    public void setAdditionalDescription(String additionalDescription) {
+        this.additionalDescription = additionalDescription;
     }
 }

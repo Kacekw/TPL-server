@@ -7,5 +7,6 @@ import java.util.List;
 public interface TaskListRepository extends JpaRepository<TaskList, Integer> {
 
     List<TaskList> findByPlantAndTaskList(int plant, int taskList);
+    TaskList findFirstByPlantAndTaskList(int plant, int taskList);
 
 }

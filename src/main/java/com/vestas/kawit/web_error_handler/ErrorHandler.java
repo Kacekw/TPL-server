@@ -8,12 +8,20 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.xml.ws.Response;
+import java.util.NoSuchElementException;
+
 @ControllerAdvice
 public class ErrorHandler {
 
     @ExceptionHandler(value = IllegalArgumentException.class)
     private ResponseEntity<Object> illegalArgumentExceptionOverride(IllegalArgumentException ioe) {
         return new ResponseEntity<>(ioe.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = NoSuchElementException.class)
+    private ResponseEntity<Object> noSuchElementExceptionOverrid(NoSuchElementException nse){
+        return new ResponseEntity<>(nse.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(value = FileStorageException.class)

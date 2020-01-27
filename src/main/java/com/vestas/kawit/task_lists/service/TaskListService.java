@@ -77,6 +77,8 @@ public class TaskListService {
     }
 
     public TaskListDTO add(TaskList taskList) {
+        taskList.setTimestamp(new Timestamp(System.currentTimeMillis()));
+
         Log log = new Log(taskList.getAuthor(),
                 SCHEDULED_SERVICE_MODULE_SAVING_TASK_LIST,
                null,

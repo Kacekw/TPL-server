@@ -37,6 +37,7 @@ xmlns:th="http://www.thymeleaf.org">
             <th>Order type</th>
             <th>Order subtype</th>
             <th>Aspect</th>
+            <th>Additional info</th>
         </tr>
         <tr th:each="log : ${LogsCollection}">
             <td th:text="${log.getUser()}">User</td>
@@ -47,6 +48,7 @@ xmlns:th="http://www.thymeleaf.org">
             <td th:text="${log.getOrderType()}">Order type</td>
             <td th:text="${log.getSubType()}">Order sub type</td>
             <td th:text="${log.getType()}">Aspect</td>
+            <td th:text="${log.getAdditionalDescription()}">Aspect</td>
         </tr>
     </table>
 

@@ -4,21 +4,20 @@ import com.vestas.kawit.task_lists.repository.TaskList;
 import com.vestas.kawit.task_lists.service.TaskListDTO;
 import com.vestas.kawit.task_lists.service.TaskListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/tasklist")
 @RestController
 public class TaskListController {
 
     private final TaskListService taskListService;
 
-    static final String WEB_CONTROLLER_NAME = "web controller";
+    private static final String ONLINE_LOG_NAME = "web controller";
 
     @Autowired
     public TaskListController(TaskListService taskListService) {
@@ -35,7 +34,7 @@ public class TaskListController {
     @GetMapping("/all")
     public ModelAndView taskListsGraphically() {
         ModelAndView mav = new ModelAndView("task_lists/tasklists");
-        mav.addObject("TaskListsCollection", taskListService.getAll(WEB_CONTROLLER_NAME, null, null));
+        mav.addObject("TaskListsCollection", taskListService.getAll(ONLINE_LOG_NAME, null, null));
         return mav;
     }
 

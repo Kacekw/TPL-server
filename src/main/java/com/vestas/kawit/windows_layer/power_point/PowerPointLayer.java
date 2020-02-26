@@ -33,7 +33,8 @@ public class PowerPointLayer {
     private Result stopPresentation() {
         try {
             System.out.print("Stopping Power Point Application ::: ");
-            refreshPresentationStatus();
+            //TODO this is not working as intended
+            //refreshPresentationStatus();
             if (presentation != null) {
                 System.out.println(powerPoint.getProperty("ActivePresentation"));
                 Dispatch.call(presentation, "Save");
@@ -46,6 +47,7 @@ public class PowerPointLayer {
         }
     }
 
+    //TODO
     private void refreshPresentationStatus() {
         Variant activePresentation = powerPoint.getProperty("ActivePresentation");
         if (activePresentation.toString().contains("There is no active presentation")) {

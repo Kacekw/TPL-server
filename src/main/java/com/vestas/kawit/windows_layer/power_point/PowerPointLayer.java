@@ -10,9 +10,9 @@ public class PowerPointLayer {
      * This class job is to run PowerPoint application, load presentation and start it on the screen.
      */
 
+    private ActiveXComponent powerPoint;
     private Dispatch presentation;
     private Dispatch presentations;
-    private ActiveXComponent powerPoint;
 
 
     public Result runPresentation(String filePath) {

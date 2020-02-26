@@ -9,6 +9,7 @@ import com.vestas.kawit.task_lists.repository.TaskListRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -57,7 +58,7 @@ public class TaskListService {
         null);
 
         if (plant == null || taskList == null) {
-            getAllResult = supplyDataTransferObject(taskListRepository.findAll());
+            getAllResult = supplyDataTransferObject(taskListRepository.findAll(Sort.by(Sort.Direction.DESC, "timestamp")));
         } else {
             getAllResult = supplyDataTransferObject(taskListRepository.findByPlantAndTaskList(Integer.parseInt(plant), Integer.parseInt(taskList)));
             if (!getAllResult.isEmpty()) {

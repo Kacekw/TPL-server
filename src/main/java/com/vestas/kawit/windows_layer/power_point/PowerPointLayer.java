@@ -10,17 +10,15 @@ public class PowerPointLayer {
      * This class job is to run PowerPoint application, load presentation and start it on the screen.
      */
 
-    private ActiveXComponent powerPoint;
+    private ActiveXComponent powerPoint = new ActiveXComponent("PowerPoint.Application");
+    private Dispatch presentations = powerPoint.getProperty("Presentations").toDispatch();
     private Dispatch presentation;
-    private Dispatch presentations;
 
 
     public Result runPresentation(String filePath) {
 
         System.out.println(stopPresentation());
 
-        if (powerPoint == null) powerPoint = new ActiveXComponent("PowerPoint.Application");
-        if (presentations == null) presentations = powerPoint.getProperty("Presentations").toDispatch();
         presentation = Dispatch.call(presentations, "Open", filePath).toDispatch();
         Dispatch slideShowSettings = Dispatch.call(presentation, "SlideShowSettings").toDispatch();
 

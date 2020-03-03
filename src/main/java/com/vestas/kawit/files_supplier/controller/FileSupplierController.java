@@ -7,8 +7,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/files")
 @Controller
@@ -24,5 +23,10 @@ public class FileSupplierController {
     @GetMapping(value = "/scripting/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<Resource> getFile() {
         return fileSupplierService.getFile();
+    }
+
+    @GetMapping(value = "/scripting/get-release")
+    public ResponseEntity<Object> checkVersion() {
+        return fileSupplierService.checkVersion();
     }
 }

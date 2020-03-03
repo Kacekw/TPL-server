@@ -73,6 +73,7 @@ public class TaskListDTO {
 
     public Timestamp getTimestamp() {
         return timestamp;
+
     }
 
     public void setTimestamp(Timestamp timestamp) {

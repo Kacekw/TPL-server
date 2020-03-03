@@ -42,6 +42,7 @@ public class FileSupplierService {
             while ((st = br.readLine()) != null) {
                 if (st.contains("release = ")) {
                     response = Optional.of(Integer.parseInt(st.replace("release = ", "")));
+                    return response;
                 }
             }
         } catch (FileNotFoundException e) {

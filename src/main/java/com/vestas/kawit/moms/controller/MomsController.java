@@ -1,3 +1,4 @@
+/*
 package com.vestas.kawit.moms.controller;
 
 import com.vestas.kawit.moms.service.MomsUploadingService;
@@ -15,13 +16,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/moms")
 public class MomsController {
 
-    /**
-     * MOMs Controller purpose is to download a file containing PowerPoint presentation and run it on a screen, as the application runs on a local
-     * computer connected to big screen, one of it's purposes is to display .pptx presentations with wide spectre of statistics, metering etc.
-     * <p>
-     * Unlike the client application, there is no need to provide mechanisms of deploying and loading libraries that make it possible to connect to windows ROT tables.
-     * Application is started once by the administrator on a previously prepared machine.
-     */
+    */
+/**
+ * MOMs Controller purpose is to download a file containing PowerPoint presentation and run it on a screen, as the application runs on a local
+ * computer connected to big screen, one of it's purposes is to display .pptx presentations with wide spectre of statistics, metering etc.
+ * <p>
+ * Unlike the client application, there is no need to provide mechanisms of deploying and loading libraries that make it possible to connect to windows ROT tables.
+ * Application is started once by the administrator on a previously prepared machine.
+ *//*
+
 
     private final MomsUploadingService momsUploadingService;
 
@@ -44,3 +47,4 @@ public class MomsController {
     }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.vestas.kawit.moms.service;
 
 import com.vestas.kawit.windows_layer.power_point.PowerPointLayer;
@@ -40,3 +41,4 @@ public class MomsUploadingService {
         }
     }
 }
+*/

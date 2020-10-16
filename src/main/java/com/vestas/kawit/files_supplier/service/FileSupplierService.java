@@ -14,7 +14,7 @@ import java.util.Optional;
 public class FileSupplierService {
 
     //TODO make a config file to store locations
-    private String pathToScriptFile = "\\\\N41763\\ScriptSharedCatalog\\KawitScriptingEngine.vbs";
+    private String pathToScriptFile = "\\\\N56977\\ScriptSharedCatalog\\KawitScriptingEngine.vbs";
     private File scriptFile = new File(pathToScriptFile);
 
     public ResponseEntity<Resource> getFile() {
